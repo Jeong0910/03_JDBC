@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.util.Scanner;
 
-public class JDBCExample {
+public class JDBCExample6 {
 
 	public static void main(String[] args) {
 		// 아이디, 비밀번호, 이름을 입력받아
