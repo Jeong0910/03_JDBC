@@ -14,7 +14,7 @@ import lombok.ToString;
 
 public class Student {
 	private int stdNo;
-	private String sdtName;
+	private String stdName;
 	private int stdAge;
 	private String major;
 	private String entDate;
