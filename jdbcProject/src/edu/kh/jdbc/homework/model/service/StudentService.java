@@ -43,7 +43,7 @@ public class StudentService {
 	public int selectStudentCheck(int studentNo) throws Exception {
 
 		Connection conn = JDBCTemplate.getConnection();
-
+		
 		int studentCheck = dao.selectStudentCheck(conn, studentNo);
 
 		JDBCTemplate.close(conn);

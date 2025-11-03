@@ -92,12 +92,11 @@ public class StudentDAO {
 
 	public int selectStudentCheck(Connection conn, int studentNo) throws Exception {
 
-		int studentCheck = 0;
-
+		int result = 0;
 		try {
 
 			String sql = """
-					SELECT STD_NO
+					SELECT COUNT(*)
 					FROM KH_STUDENT
 					WHERE STD_NO = ?
 					""";
@@ -109,7 +108,7 @@ public class StudentDAO {
 			rs = pstmt.executeQuery();
 
 			if (rs.next()) {
-				studentNo = rs.getInt("STD_NO");
+				result = rs.getInt(1);
 			}
 
 		} finally {
@@ -119,7 +118,7 @@ public class StudentDAO {
 
 		}
 
-		return studentCheck;
+		return result;
 	}
 
 	public int updateInfo(Connection conn, String name, int age, String major, String entDate) throws Exception {
@@ -130,10 +129,7 @@ public class StudentDAO {
 
 			String sql = """
 					UPDATE KH_STUDENT
-					SET STD_NAME = ?
-					AND STD_AGE = ?
-					AND MAJOR = ?
-					AND ENT_DATE = ?
+					SET STD_NAME = ?, STD_AGE = ?, MAJOR = ?, ENT_DATE = ?
 					WHERE STD_NO = ?
 					""";
 
